@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CS321_W4D1_BookAPI.ApiModels;
 using CS321_W4D1_BookAPI.Models;
 
 namespace CS321_W4D1_BookAPI.Services
@@ -17,7 +18,7 @@ namespace CS321_W4D1_BookAPI.Services
         void Remove(Book todo);
         // list
         IEnumerable<Book> GetAll();
-
-        // TODO: add GetBooksForAuthor(int authorId) method
-    }
+		object Update(BookModel updatedBook);
+        IEnumerable<Book> GetBooksForAuthor(int id);
+	}
 }
