@@ -66,12 +66,10 @@ namespace CS321_W4D1_BookAPI.Services
 
         public void Remove(Book book)
         {
-            // TODO: remove the book
             _bookContext.Books.Remove(book);
             _bookContext.SaveChanges();
         }
 
-        // TODO: implement GetBooksForAuthor() method
         public IEnumerable<Book> GetBooksForAuthor(int authorId)
 		{
             return _bookContext.Books
@@ -79,6 +77,20 @@ namespace CS321_W4D1_BookAPI.Services
                 .Include(b => b.Author)
                 .Where(b => b.AuthorId == authorId)
                 .ToList();
+		}
+
+        public IEnumerable<Book> GetBooksForPublisher(int publisherId)
+		{
+            return _bookContext.Books
+                .Include(b => b.Publisher)
+                .Include(b => b.Author)
+                .Where(b => b.AuthorId == publisherId)
+                .ToList();
+		}
+
+		public object Update(BookModel updatedBook)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

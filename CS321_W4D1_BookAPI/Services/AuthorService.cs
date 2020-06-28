@@ -8,32 +8,25 @@ namespace CS321_W4D1_BookAPI.Services
 {
     public class AuthorService : IAuthorService
     {
-
         private readonly BookContext _bookContext;
 
         public AuthorService(BookContext bookContext)
         {
-            // TODO: keep a reference to the AuthorContext in _AuthorContext
             _bookContext = bookContext;
         }
 
         public Author Add(Author Author)
         {
-            // TODO: implement add
             _bookContext.Authors.Add(Author);
             _bookContext.SaveChanges();
             return Author;
         }
-
         public Author Get(int id)
         {
-            // TODO: return the specified Author using Find()
             return _bookContext.Authors.Find(id);
         }
-
         public IEnumerable<Author> GetAll()
         {
-            // TODO: return all Authors using ToList()
             return _bookContext.Authors.ToList();
         }
 
@@ -63,7 +56,6 @@ namespace CS321_W4D1_BookAPI.Services
 
         public void Remove(Author Author)
         {
-            // TODO: remove the Author
             _bookContext.Authors.Remove(Author);
             _bookContext.SaveChanges();
         }

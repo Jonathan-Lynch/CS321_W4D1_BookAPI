@@ -75,10 +75,6 @@ namespace CS321_W4D1_BookAPI.Controllers
             return NoContent();
         }
 
-
-        // GET api/author/{authorId}/books
-        // NOTE that the route specified in HttpGet begins with a forward slash.
-        // This overrides the Route("/api/[controller]") specified on the BooksController class.
         [HttpGet("/api/authors/{authorId}/books")]
         public IActionResult GetBooksForAuthor(int authorId)
 		{
@@ -87,5 +83,14 @@ namespace CS321_W4D1_BookAPI.Controllers
                 .ToApiModels();
             return Ok(bookModels);
 		}
+
+        [HttpGet("/api/publishers/{publisherid}/books")]
+        public IActionResult GetBooksForPublisher(int publisherId)
+        {
+            var publisherModel = _bookService
+                .GetBooksForAuthor(publisherId)
+                .ToApiModels();
+            return Ok(publisherModel);
+        }
     }
 }
